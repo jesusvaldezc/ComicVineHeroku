@@ -38,5 +38,6 @@ app.get("/comicCharacter", function (req, res) {
     })
 
     app.listen(port, function () {
+        console.log("I am listening using this port! ", port)
         console.log('Up and running!')
     })

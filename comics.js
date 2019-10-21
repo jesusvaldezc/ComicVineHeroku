@@ -1,4 +1,3 @@
-const credentials = require('./credentials.js')
 const request = require('request')
 
 if(process.env.NODE_ENV === 'production'){
