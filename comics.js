@@ -1,8 +1,19 @@
 const credentials = require('./credentials.js')
 const request = require('request')
 
+if(process.env.NODE_ENV === 'production'){
+    var COMICVINE_API_KEY = process.env.API_KEY
+  
+}
+else
+{
+    const credentials = require('./credentials.js')
+    var COMICVINE_API_KEY = credentials.COMICVINE_API_KEY
+   
+}
+
 const character = function (superhero, callback) {
-    const url = 'https://comicvine.gamespot.com/api/search/?api_key=' + credentials.COMICVINE_API_KEY + '&format=json&sort=name:asc&resources=character&query=' + superhero
+    const url = 'https://comicvine.gamespot.com/api/search/?api_key=' + COMICVINE_API_KEY + '&format=json&sort=name:asc&resources=character&query=' + superhero
     console.log(url)
     request({ url, json: true }, function (error, response) {
 
